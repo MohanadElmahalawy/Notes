@@ -1,16 +1,17 @@
-import express from 'express';
-import notesRoute from './routes/notesRoute';
-import { connectDB } from './config/db'
+import express from "express";
+import notesRoute from "./routes/notesRoute";
+import { connectDB } from "./config/db";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-const app=express();
-const PORT=process.env.PORT || 5000;
+const app = express();
+app.use(express.json()); // Middleware to parse JSON bodies
+const PORT = process.env.PORT || 5000;
 connectDB();
 
 app.use("/api/notes", notesRoute);
 
-app.listen(PORT,()=>{
-    console.log("server started at port",PORT);
-})
+app.listen(PORT, () => {
+  console.log("server started at port", PORT);
+});
