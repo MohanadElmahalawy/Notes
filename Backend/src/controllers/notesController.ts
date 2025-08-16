@@ -1,4 +1,4 @@
 import { Request,Response } from "express";
-export const getApi = (req: Request,res: Response)=>{
+export const getNotes = (req: Request,res: Response)=>{
     res.send("Notes API is running...");
 } 
